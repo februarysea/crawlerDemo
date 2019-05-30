@@ -1,5 +1,4 @@
 from urllib.parse import urlencode
-from pyquery import PyQuery as pq
 import requests
 baseUrl = "https://m.weibo.cn/comments/hotflow?"
 
@@ -40,7 +39,7 @@ def get_page(max_id):
             continue
         print(comment)
         r = requests.get(comment['pic'], stream=True)
-        with open(comment['usr']+"'.jpg'", 'wb') as fd:
+        with open(comment['usr']+".jpg", 'wb') as fd:
             for chunk in r.iter_content():
                 fd.write(chunk)
 
